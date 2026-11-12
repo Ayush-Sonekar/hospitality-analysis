@@ -1,71 +1,33 @@
-# Hospitality Analysis Dashboard
+Hospitality Analysis Dashboard
 
-## Project Overview
-This project presents a comprehensive **Hospitality Business Performance Analysis** built using **Power BI**.  
-It tracks and visualizes key performance indicators (KPIs) for the hospitality industry, enabling better decision-making through data insights.  
+A Power BI report on hotel booking performance: revenue, occupancy, RevPAR, ADR, and booking realization, broken down by city, room class, property, booking platform, and weekday vs. weekend.
 
-The dashboard provides detailed metrics on revenue, occupancy, average daily rate (ADR), realization %, and more — broken down by city, room class, booking status, and platform.
+Stack: Power BI, DAX, Power Query, Excel Data source: [State the source here, for example "Codebasics Resume Project Challenge dataset; hotel names changed to Tenet". Say what you built yourself versus what was provided.]
 
----
+Data coverage
+134,590 bookings across 25 properties in 4 cities (Delhi, Mumbai, Hyderabad, Bangalore)
+Check-in dates from 1 May 2022 to 31 July 2022 (92 days)
+Room classes: Standard, Elite, Premium, Presidential; property categories: Luxury and Business
+Tables: bookings, Total Bookings (daily capacity and successful bookings), Hotels, Rooms, Date; Measures.xlsx documents the measures
+Metric definitions (as implemented in DAX)
+Metric	Definition
+Revenue	Sum of revenue_realized
+ADR	Revenue / total bookings (cancelled and no-show bookings are included in the count)
+Occupancy %	Successful bookings / total capacity
+RevPAR	Revenue / total capacity
+Realisation %	1 - (cancellation % + no-show %), a booking-based measure, not a revenue-based one
+DSRN	Total capacity / number of days
+Key findings (May to July 2022)
+Weekends outperform on occupancy, not price. Weekend occupancy was 62.6% vs. 56.0% on weekdays and RevPAR was 12% higher (7,972 vs. 7,101), while ADR was almost identical (12,725 vs. 12,683).
+Luxury drives most revenue because it has more properties. Luxury accounted for 61.6% of revenue and has 16 of the 25 properties; Business properties had slightly higher RevPAR (7,498 vs. 7,256).
+Realization is the same everywhere. All seven booking platforms fall between 69.8% and 70.6%, so no platform stands out.
+Mumbai leads on price and revenue. ADR of 15,387 vs. 9,322 in Hyderabad, and about 39% of total revenue.
+Overall: occupancy 57.9%, cancellation rate 24.8%, no-show rate 5.0%, realisation 70.2%.
+Dashboard pages
 
-## Objectives
-- Monitor core business KPIs for the hospitality sector.
-- Analyze booking trends by date, city, room category, and channel.
-- Compare weekday vs weekend performance.
-- Evaluate property-level performance for operational and pricing decisions.
-- Provide actionable insights to optimize revenue and occupancy.
+Main overview with KPI cards and week-over-week changes, plus trend pages for Revenue, RevPAR, DSRN, Occupancy, ADR, and Realization.
 
----
-
-## Dataset Description
-The analysis uses multiple datasets integrated in Power BI:
-
-| File Name              | Description |
-|------------------------|-------------|
-| `Booking.csv`          | Detailed booking transactions data. |
-| `Total Booking.csv`    | Aggregated booking information. |
-| `Date.csv`             | Date dimension for time-based analysis. |
-| `Hotels.csv`           | Hotel property information. |
-| `Rooms.csv`            | Room category details. |
-| `Columns.xlsx`         | Column metadata. |
-| `Measures.xlsx`        | Defined measures and DAX calculations used in the dashboard. |
-
----
-
-## KPIs Tracked
-- **Revenue** – Total revenue generated.
-- **RevPAR** – Revenue per available room.
-- **Occupancy %** – Percentage of rooms occupied.
-- **ADR** – Average daily rate.
-- **DSRN** – Daily Sellable Room Nights.
-- **Realization %** – Percentage of revenue realized after discounts, cancellations, etc.
-
----
-
-## Dashboard Features
-1. **Filters** – By city, room class, booking status.
-2. **KPI Cards** – Quick glance at key metrics and week-over-week changes.
-3. **Revenue Breakdown** – By category (Luxury vs Business).
-4. **Trend Analysis** – RevPAR and Occupancy trends over time.
-5. **Day Type Analysis** – Weekday vs Weekend performance.
-6. **Platform Analysis** – Realization % and ADR by booking platform.
-7. **Property Comparison** – Revenue, occupancy, ADR, and cancellation % by property.
-
----
-
-## Key Insights
-- **Weekends** show higher occupancy and RevPAR than weekdays.
-- **Business category** generates more revenue share than luxury.
-- Realization % is steady around ~70% across most booking platforms.
-- Certain properties achieve high ADR but have lower occupancy — a potential opportunity for price optimization.
-- Referral and direct booking channels maintain higher realization rates.
-
----
-
-## Tools & Technologies Used
-- **Power BI** – Dashboard creation and data modeling.
-- **Microsoft Excel** – Data cleaning and preparation.
-- **DAX** – Custom measures and calculated columns.
-- **CSV/XLSX datasets** – Source data.
-
----
+Files
+Hospitality_Analysis.pbix: report and data model
+Source CSV files: bookings, total bookings, date, hotels, rooms
+Measures.xlsx, Columns.xlsx: measure and column documentation
